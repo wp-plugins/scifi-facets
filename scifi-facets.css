@@ -1,0 +1,104 @@
+.scifi-facets-widget {
+  overflow: hidden;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.scifi-facets-terms-format-tags,
+.scifi-facets-ordering {
+  margin: 2%;
+}
+.scifi-facets-terms-format-tags .scifi-facets-terms-title {
+  margin-left: 0;
+  color: #666;
+}
+.scifi-facets-terms-format-tags ul,
+.scifi-facets-terms-format-tags li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.scifi-facets-terms-tags-active {
+  overflow: hidden;
+  clear: both;
+}
+.scifi-facets-terms-tags-inactive {
+  clear: both;
+  max-height: 200px;
+  overflow: auto;
+}
+.scifi-facets-terms-tags-active li {
+  float: left;
+  margin: 1%;
+}
+.scifi-facets-terms-tags-active li a {
+  display: block;
+  padding: .2em .4em;
+  background: #eee;
+}
+.scifi-facets-terms-tags-active li a:hover {
+  background: #ddd;
+}
+.scifi-facets-terms-tags-active li a:after {
+  display: inline-block;
+  line-height: 5px;
+  vertical-align: middle;
+  padding: 0 3px;
+  margin-left: .5em;
+  border-radius: 100%;
+  font: bolder 10px monospace;
+  content: '\00D7';
+  cursor: pointer;
+  color: #fff;
+  background: #ccc;
+}
+.scifi-facets-terms-tags-inactive li {
+  line-height: 1.4em;
+  vertical-align: middle;
+  margin-right: 2%;
+}
+.scifi-facets-terms-tags-inactive li a {
+  display: block;
+  padding: .2em .4em;
+}
+.scifi-facets-terms-tags-inactive li a:before {
+  content: '+';
+  font: bolder 16px monospace;
+  margin-right: .3em;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+}
+.scifi-facets-terms-format-tags .scifi-facets-terms-title,
+.scifi-facets-ordering > label {
+  margin: .2em .4em;
+  padding: .2em;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+.scifi-facets-terms-format-tags .scifi-facets-terms-title:after {
+  float: right;
+  margin-top: .3em;
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #ccc;
+}
+.scifi-facets-terms-format-tags .scifi-facets-terms-title:hover:after {
+  border-top-color: #aaa;
+}
+.scifi-facets-order-selector-asc:before,
+.scifi-facets-order-selector-desc:before {
+  font: bolder 2.2em monospace;
+}
+.scifi-facets-order-selector-asc:before {
+  content: '\2191';
+}
+.scifi-facets-order-selector-desc:before {
+  content: '\2193';
+}

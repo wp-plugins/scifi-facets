@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: scifi_facets-0.1\n"
+"Report-Msgid-Bugs-To: http://http://wordpress.org/extend/plugins/scifi-facets/\n"
+"POT-Creation-Date: 2014-02-14 20:52+0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: ../widget.php:21
+msgid "(scifi) Taxonomy facets"
+msgstr ""
+
+#: ../widget.php:195
+msgid "Order"
+msgstr ""
+
+#: ../widget.php:199
+msgid "Default"
+msgstr ""
+
+#: ../widget.php:211
+msgid "Asc"
+msgstr ""
+
+#: ../widget.php:214
+msgid "Desc"
+msgstr ""
+
+#: ../widget.php:250
+msgid "Title:"
+msgstr ""
+
+#: ../widget.php:257
+msgid "Format:"
+msgstr ""
+
+#: ../widget.php:276
+msgid "Show taxonomy names"
+msgstr ""
+
+#: ../widget.php:302
+msgid "Include all item"
+msgstr ""
+
+#: ../widget.php:315
+msgid "Use query vars"
+msgstr ""
+
+#: ../widget.php:327
+msgid "Show in archives only"
+msgstr ""
+
+#: ../widget.php:339
+msgid "Connect with current page query"
+msgstr ""
+
+#: ../widget.php:351
+msgid "Show order by selector"
+msgstr ""
+
+#: ../widget.php:363
+msgid "Show order selector"
+msgstr ""
+
+#: ../widget.php:369
+msgid "Depends of:"
+msgstr ""
+
+#: ../widget.php:372
+msgid "None"
+msgstr ""
+
+#: ../widget.php:382
+msgid "Taxonomies:"
+msgstr ""
+
+#: ../scifi_facets.php:61
+msgid "Title"
+msgstr ""
+
+#: ../scifi_facets.php:62
+msgid "Date"
+msgstr ""
+
+#: ../scifi_facets.php:63
+msgid "Last update"
+msgstr ""
+
+#: ../scifi_facets.php:64
+msgid "Comments"
+msgstr ""
+
+#: ../scifi_facets.php:84 ../scifi_facets.php:116
+msgid "All"
+msgstr ""
