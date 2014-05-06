@@ -1,4 +1,4 @@
-=== scifi_facets ===
+=== scifi Facets ===
 Contributors: dimitrov.adrian
 Tags: taxonomy, terms, facet, faceted, search
 Requires at least: 3.7
