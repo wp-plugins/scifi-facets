@@ -10,8 +10,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-scifi_facets is simple facet widget which allow adding a widget
-for faceted search or category/taxonomy browsing for all post types and all taxonomies.
+scifi_facets is simple facet widget which allow browsing post (also allow custom post types) archives,
+to be browsed in faceted alike way.
 
 
 == Installation ==
@@ -21,6 +21,11 @@ for faceted search or category/taxonomy browsing for all post types and all taxo
 3. Activate scifi facets from your Plugins page.
 4. Visit Appearance > Widgets and add '(scifi) Taxonomy facets' to some of your widget area.
 
+
+== Screenshots ==
+
+`/assets/scifi-facets-screenshot1.jpg`
+`/assets/scifi-facets-screenshot2.jpg`
 
 == Changelog ==
 
@@ -38,9 +43,8 @@ for faceted search or category/taxonomy browsing for all post types and all taxo
 
 == DEVELOPERS ==
 
-Plugin also define some filters and actions, currently available are:
+Plugin define some filters that may help to developers
 
-=== Filters ===
 * Alter ordering 'scifi_list_orderby' parameter $orderby
 * Alter class of taxonomy term links 'scifi_facets_formatter_links_classes' parameters $term_classes and optionally $term
 * Alter formatters 'scifi_facets_formatters' parameter available formatters
