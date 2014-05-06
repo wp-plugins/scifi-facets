@@ -20,7 +20,6 @@ to be browsed in faceted alike way.
 
 
 **DEVELOPERS**
-
 Plugin define some filters that may help to developers
 
 * Alter ordering 'scifi_list_orderby' parameter $orderby
@@ -41,8 +40,8 @@ http://scifi.bg/katalog/
 
 == Screenshots ==
 
-`/assets/scifi-facets-screenshot1.jpg`
-`/assets/scifi-facets-screenshot2.jpg`
+1. Backend part
+2. Frontend part
 
 == Changelog ==
 
