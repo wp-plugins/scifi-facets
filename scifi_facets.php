@@ -6,10 +6,11 @@
  * Description: Add widget for faceted search or category/taxonomy browsing
  * Author:      Adrian Dimitrov <dimitrov.adrian@gmail.com>
  * Author URI:  http://scifi.bg/opensource/
- * Version:     0.2
+ * Version:     0.3
  * Text Domain: scifi_facets
  * Domain Path: /languages/
  */
+
 
 /**
  * Localize the plugin.
@@ -35,17 +36,30 @@ add_action('widgets_init', function() {
  * Register facets JS and CSS
  */
 add_action('wp_enqueue_scripts', function() {
-  wp_register_script('scifi-facets', plugins_url('scifi-facets.js', __FILE__), array('jquery'), 0.2, TRUE);
-  wp_enqueue_style('scifi-facets', plugins_url('scifi-facets.css', __FILE__), array(), 0.2);
+  wp_register_script('scifi-facets', plugins_url('scifi-facets.js', __FILE__), array('jquery'), 0.3, TRUE);
+  wp_enqueue_style('scifi-facets', plugins_url('scifi-facets.css', __FILE__), array(), 0.3);
 });
 
 /**
  * Register facets formatters
  */
 add_filter('scifi_facets_formatters', function($formatters = array()) {
-  $formatters['select'] = '_scifi_facets_formatters_select';
-  $formatters['links']  = '_scifi_facets_formatters_links';
-  $formatters['tags']   = '_scifi_facets_formatters_tags';
+  $formatters['links']  = array(
+    'name' => __('Links', 'scifi_facets'),
+    'cb' => '_scifi_facets_formatters_links',
+  );
+  $formatters['tags']  = array(
+    'name' => __('Tags', 'scifi_facets'),
+    'cb' => '_scifi_facets_formatters_tags',
+  );
+  $formatters['select']  = array(
+    'name' => __('Drop down', 'scifi_facets'),
+    'cb' => '_scifi_facets_formatters_select',
+  );
+  $formatters['select_multiple']  = array(
+    'name' => __('Multiple select', 'scifi_facets'),
+    'cb' => '_scifi_facets_formatters_links',
+  );
   return $formatters;
 }, 5);
 
@@ -69,6 +83,23 @@ function _scifi_list_orderby() {
 }
 
 /**
+ * Get URL for current instance
+ *
+ * @param $widget_instance_settings
+ *
+ * @return string
+ */
+function _scifi_facets_urlbase($widget_instance_settings) {
+  if ($widget_instance_settings['urlbase'] == '{custom}') {
+    return home_url($widget_instance_settings['urlbase_custom']);
+  }
+  elseif ($widget_instance_settings['urlbase']) {
+    return get_post_type_archive_link($widget_instance_settings['urlbase']);
+  }
+  return $_SERVER['REQUEST_URI'];
+}
+
+/**
  * Facets widget formatter - select
  *
  * @param string $taxonomy_name
@@ -80,13 +111,43 @@ function _scifi_facets_formatters_select($taxonomy_name, $terms, $active_terms, 
   $taxonomy_object = get_taxonomy($taxonomy_name);
   echo '<select class="scifi-facets-select">';
   if ($widget_instance_settings['includeall'] == 'includeall') {
-    $link = remove_query_arg($taxonomy_object->query_var);
+    if ($widget_instance_settings['usepermalinks'] == 'usepermalinks' || empty($taxonomy_object->rewrite['slug'])) {
+      $link = home_url($taxonomy_object->rewrite['slug']);
+    }
+    else {
+      $link = remove_query_arg($taxonomy_object->query_var);
+    }
     printf('<option value="%s">&lt;%s&gt;</option>', $link, __('All', 'scifi_facets'));
   }
   foreach ($terms as $term) {
     $selected = selected( in_array(urldecode($term->slug), $active_terms), TRUE, FALSE);
-    $link = add_query_arg($taxonomy_object->query_var, $term->slug);
+    if ($widget_instance_settings['usepermalinks'] == 'usepermalinks') {
+      $link = get_term_link($term, $taxonomy_name);
+    }
+    else {
+      $link = add_query_arg($taxonomy_object->query_var, $term->slug, _scifi_facets_urlbase($widget_instance_settings));
+    }
     printf('<option value="%s" %s>%s</option>', $link, $selected, $term->name);
+  }
+  echo '</select>';
+}
+
+/**
+ * Facets widget formatter - select multiple
+ *
+ * @param string $taxonomy_name
+ * @param array $terms
+ * @param array $active_terms
+ * @param array $widget_instance_settings
+ */
+function _scifi_facets_formatters_select_multiple($taxonomy_name, $terms, $active_terms, $widget_instance_settings) {
+  $taxonomy_object = get_taxonomy($taxonomy_name);
+  printf('<select class="scifi-facets-select-multiple" multiple="multiple" data-scifi-facets-addurl="%s" data-scifi-facets-removeurl="%s">',
+    add_query_arg($taxonomy_object->query_var, '#slug#', _scifi_facets_urlbase($widget_instance_settings)),
+    remove_query_arg($taxonomy_object->query_var));
+  foreach ($terms as $term) {
+    $selected = selected( in_array(urldecode($term->slug), $active_terms), TRUE, FALSE);
+    printf('<option value="%s" %s>%s</option>', $term->slug, $selected, $term->name);
   }
   echo '</select>';
 }
@@ -104,12 +165,17 @@ function _scifi_facets_formatters_links($taxonomy_name, $terms, $active_terms, $
   echo '<ul class="menu">';
 
   if ($widget_instance_settings['includeall']) {
-    $term_classes = array('scifi-facets-widgets-tax-facet', 'taxonomy-term-all');
+    $term_classes = array(
+      'scifi-facets-widgets-tax-facet',
+      'taxonomy-term-all',
+    );
     if (!$active_terms) {
       $term_classes[] = 'scifi-facets-widgets-tax-facet-current';
     }
-    $link = empty($taxonomy_object->rewrite['slug']) ? FALSE : home_url($taxonomy_object->rewrite['slug']);
-    if ($link === FALSE || $widget_instance_settings['useqvars']) {
+    if ($widget_instance_settings['usepermalinks'] == 'usepermalinks' || empty($taxonomy_object->rewrite['slug'])) {
+      $link = home_url($taxonomy_object->rewrite['slug']);
+    }
+    else {
       $link = remove_query_arg($taxonomy_object->query_var);
     }
     $term_classes = apply_filters('scifi_facets_formatter_links_classes', $term_classes);
@@ -117,20 +183,21 @@ function _scifi_facets_formatters_links($taxonomy_name, $terms, $active_terms, $
   }
 
   foreach ($terms as $term) {
-    $term_classes = array('scifi-facets-widgets-tax-facet', 'taxonomy-term-' . $term->term_id);
+    $term_classes = array(
+      'scifi-facets-widgets-tax-facet',
+      'taxonomy-term-' . $term->term_id,
+    );
     if (in_array(urldecode($term->slug), $active_terms)) {
       $term_classes[] = 'scifi-facets-widgets-tax-facet-current';
     }
     $term_classes = apply_filters('scifi_facets_formatter_links_classes', $term_classes, $term);
-    if ($widget_instance_settings['useqvars']) {
-      $link = add_query_arg($taxonomy_object->query_var, $term->slug);
-    }
-    else {
+
+    if ($widget_instance_settings['usepermalinks'] == 'usepermalinks') {
       $link = get_term_link($term, $taxonomy_name);
     }
-    // if ($widget_instance_settings['showcount'] == 'showcount') {
-    //   $term->name = sprintf('%s (%s)', $term->name, $term->_post_count);
-    // }
+    else {
+      $link = add_query_arg($taxonomy_object->query_var, $term->slug, _scifi_facets_urlbase($widget_instance_settings));
+    }
     printf('<li><a class="%s" href="%s" rel="nofollow">%s</a></li>', implode(' ', $term_classes), $link, $term->name);
   }
   echo '</ul>';
@@ -149,49 +216,37 @@ function _scifi_facets_formatters_tags($taxonomy_name, $terms, $active_terms, $w
 
   if ($active_terms) {
     echo '<ul class="scifi-facets-terms-tags-active">';
-    foreach ($terms as $term_key => $term) {
+    foreach ($terms as $term) {
       if (!in_array(urldecode($term->slug), $active_terms)) {
         continue;
       }
-      if ($widget_instance_settings['useqvars']) {
-        $a = $active_terms;
-        $key = array_search(urldecode($term->slug), $a);
-        if ($key !== FALSE) {
-          unset($a[$key]);
-          $a = array_filter($a);
-        }
-        if (count($a) > 0) {
-          $link = add_query_arg($taxonomy_object->query_var, implode(',', $a));
-        }
-        else {
-          $link = remove_query_arg($taxonomy_object->query_var);
-        }
+      $a = $active_terms;
+      $key = array_search(urldecode($term->slug), $a);
+      if ($key !== FALSE) {
+        unset($a[$key]);
+        $a = array_filter($a);
+      }
+      if (count($a) > 0) {
+        $link = add_query_arg($taxonomy_object->query_var, implode(',', $a), _scifi_facets_urlbase($widget_instance_settings));
       }
       else {
-        $link = get_term_link($term, $taxonomy_name);
+        $link = remove_query_arg($taxonomy_object->query_var);
       }
-      $term_classes = array();
-      printf('<li class="%s"><a href="%s" rel="nofollow">%s</a></li>', implode(' ', $term_classes), $link, $term->name);
+      printf('<li><a href="%s" rel="nofollow">%s</a></li>', $link, $term->name);
     }
     echo '</ul>';
   }
 
   echo '<ul class="scifi-facets-terms-tags-inactive">';
-  foreach ($terms as $term_key => $term) {
-    if ($widget_instance_settings['useqvars']) {
-      $a = $active_terms;
-      $a[] = $term->slug;
-      $a = array_filter($a);
-      $link = add_query_arg($taxonomy_object->query_var, implode(',', $a));
+  foreach ($terms as $term) {
+    if (in_array(urldecode($term->slug), $active_terms)) {
+      continue;
     }
-    else {
-      $link = get_term_link($term, $taxonomy_name);
-    }
-    $term_classes = array();
-    // if ($widget_instance_settings['showcount']) {
-    //   $term->name = sprintf('%s (%s)', $term->name, $term->_post_count);
-    // }
-    printf('<li class="%s"><a href="%s" rel="nofollow">%s</a></li>', implode(' ', $term_classes), $link, $term->name);
+    $a = $active_terms;
+    $a[] = $term->slug;
+    $a = array_filter($a);
+    $link = add_query_arg($taxonomy_object->query_var, implode(',', $a), _scifi_facets_urlbase($widget_instance_settings));
+    printf('<li><a href="%s" rel="nofollow">%s</a></li>', $link, $term->name);
   }
   echo '</ul>';
 }

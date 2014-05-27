@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: scifi_facets-0.1\n"
+"Project-Id-Version: scifi_facets-0.3\n"
 "Report-Msgid-Bugs-To: http://http://wordpress.org/extend/plugins/scifi-facets/\n"
 "POT-Creation-Date: 2014-02-14 20:52+0200\n"
 "MIME-Version: 1.0\n"
@@ -10,90 +10,140 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: ../widget.php:21
-msgid "(scifi) Taxonomy facets"
+
+
+#: ../scifi_facets.php:48
+msgid "Links"
 msgstr ""
 
-#: ../widget.php:195
-msgid "Order"
+#: ../scifi_facets.php:52
+msgid "Tags"
 msgstr ""
 
-#: ../widget.php:199
-msgid "Default"
+#: ../scifi_facets.php:56
+msgid "Drop down"
 msgstr ""
 
-#: ../widget.php:211
-msgid "Asc"
+#: ../scifi_facets.php:60
+msgid "Multiple select"
 msgstr ""
 
-#: ../widget.php:214
-msgid "Desc"
-msgstr ""
-
-#: ../widget.php:250
-msgid "Title:"
-msgstr ""
-
-#: ../widget.php:257
-msgid "Format:"
-msgstr ""
-
-#: ../widget.php:276
-msgid "Show taxonomy names"
-msgstr ""
-
-#: ../widget.php:302
-msgid "Include all item"
-msgstr ""
-
-#: ../widget.php:315
-msgid "Use query vars"
-msgstr ""
-
-#: ../widget.php:327
-msgid "Show in archives only"
-msgstr ""
-
-#: ../widget.php:339
-msgid "Connect with current page query"
-msgstr ""
-
-#: ../widget.php:351
-msgid "Show order by selector"
-msgstr ""
-
-#: ../widget.php:363
-msgid "Show order selector"
-msgstr ""
-
-#: ../widget.php:369
-msgid "Depends of:"
-msgstr ""
-
-#: ../widget.php:372
-msgid "None"
-msgstr ""
-
-#: ../widget.php:382
-msgid "Taxonomies:"
-msgstr ""
-
-#: ../scifi_facets.php:61
+#: ../scifi_facets.php:75
 msgid "Title"
 msgstr ""
 
-#: ../scifi_facets.php:62
+#: ../scifi_facets.php:76
 msgid "Date"
 msgstr ""
 
-#: ../scifi_facets.php:63
+#: ../scifi_facets.php:77
 msgid "Last update"
 msgstr ""
 
-#: ../scifi_facets.php:64
+#: ../scifi_facets.php:78
 msgid "Comments"
 msgstr ""
 
-#: ../scifi_facets.php:84 ../scifi_facets.php:116
+#: ../scifi_facets.php:120 ../scifi_facets.php:182
 msgid "All"
+msgstr ""
+
+#: ../widget.php:18 ../widget.php:21
+msgid "Taxonomy facets"
+msgstr ""
+
+#: ../widget.php:225
+msgid "Order"
+msgstr ""
+
+#: ../widget.php:229
+msgid "Default"
+msgstr ""
+
+#: ../widget.php:241
+msgid "Asc"
+msgstr ""
+
+#: ../widget.php:244
+msgid "Desc"
+msgstr ""
+
+#: ../widget.php:282
+msgid "Title:"
+msgstr ""
+
+#: ../widget.php:294
+msgid "Format:"
+msgstr ""
+
+#: ../widget.php:333
+msgid "Show taxonomy names"
+msgstr ""
+
+#: ../widget.php:345
+msgid "Show \"show all\" item"
+msgstr ""
+
+#: ../widget.php:358
+msgid "Use permalinks if available"
+msgstr ""
+
+#: ../widget.php:364
+msgid "URL base when no permalinks available:"
+msgstr ""
+
+#: ../widget.php:367
+msgid "Auto"
+msgstr ""
+
+#: ../widget.php:368
+msgid "Custom"
+msgstr ""
+
+#: ../widget.php:371
+msgid "%s (post type)"
+msgstr ""
+
+#: ../widget.php:385
+msgid "Relative path to the site, without trailing slash."
+msgstr ""
+
+#: ../widget.php:415
+msgid "Show in archives"
+msgstr ""
+
+#: ../widget.php:427
+msgid "Show in single post views"
+msgstr ""
+
+#: ../widget.php:439
+msgid "Connect with current page request query"
+msgstr ""
+
+#: ../widget.php:451
+msgid "Show \"order by\" selector"
+msgstr ""
+
+#: ../widget.php:463
+msgid "Show \"order\" selector"
+msgstr ""
+
+#: ../widget.php:469
+msgid "Depends of:"
+msgstr ""
+
+#: ../widget.php:472
+msgid "None"
+msgstr ""
+
+#: ../widget.php:482
+msgid "Taxonomies:"
+msgstr ""
+
+#: ../widget.php:499
+msgid "Exclude terms:"
+msgstr ""
+
+#: ../widget.php:512
+msgid "* Exclude terms is list of coma separated slugs or id."
 msgstr ""
