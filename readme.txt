@@ -29,6 +29,12 @@ Plugin also define some filters and actions, currently available are:
 * Alter terms before processed 'scifi_facets_prepare_tax_terms' parameter $terms, $instance
 
 
+== Screenshots ==
+
+1. Widget settings screen
+2. How it looks
+
+
 == Installation ==
 
 1. Visit 'Plugins > Add New'
