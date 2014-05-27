@@ -10,19 +10,18 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-*IF UPDATE FROM 0.2 PLEASE TAKE CARE THAT VISIBILITY RULE IS RESET*
+**IF UPDATE FROM 0.2 PLEASE TAKE CARE THAT VISIBILITY RULE IS RESET**
 
 scifi_facets is simple facet widget which allow adding a widget
 for faceted search or category/taxonomy browsing for all post types and all taxonomies.
 
 
-= TODO
+= TODO =
 * Post counter
 * Define AND/OR logic
 
 
-= DEVELOPERS
-
+= DEVELOPERS =
 Plugin also define some filters and actions, currently available are:
 * Alter ordering 'scifi_list_orderby' parameter $orderby
 * Alter class of taxonomy term links 'scifi_facets_formatter_links_classes' parameters $term_classes and optionally $term
