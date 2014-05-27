@@ -16,6 +16,20 @@ scifi_facets is simple facet widget which allow adding a widget
 for faceted search or category/taxonomy browsing for all post types and all taxonomies.
 
 
+= TODO
+* Post counter
+* Define AND/OR logic
+
+
+= DEVELOPERS
+
+Plugin also define some filters and actions, currently available are:
+* Alter ordering 'scifi_list_orderby' parameter $orderby
+* Alter class of taxonomy term links 'scifi_facets_formatter_links_classes' parameters $term_classes and optionally $term
+* Alter formatters 'scifi_facets_formatters' parameter available formatters
+* Alter terms before processed 'scifi_facets_prepare_tax_terms' parameter $terms, $instance
+
+
 == Installation ==
 
 1. Visit 'Plugins > Add New'
@@ -39,18 +53,3 @@ for faceted search or category/taxonomy browsing for all post types and all taxo
 = 0.1 =
 * Initial bump
 
-
-=== TODO ===
-* Post counter
-* Define AND/OR logic
-
-
-== DEVELOPERS ==
-
-Plugin also define some filters and actions, currently available are:
-
-=== Filters ===
-* Alter ordering 'scifi_list_orderby' parameter $orderby
-* Alter class of taxonomy term links 'scifi_facets_formatter_links_classes' parameters $term_classes and optionally $term
-* Alter formatters 'scifi_facets_formatters' parameter available formatters
-* Alter terms before processed 'scifi_facets_prepare_tax_terms' parameter $terms, $instance
