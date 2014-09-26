@@ -2,7 +2,7 @@
 Contributors: dimitrov.adrian
 Tags: taxonomy, terms, facet, faceted, search
 Requires at least: 3.7
-Tested up to: 3.9
+Tested up to: 4.0
 Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -10,18 +10,18 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-**IF UPDATE FROM 0.2 PLEASE TAKE CARE THAT VISIBILITY RULE IS RESET**
-
 scifi_facets is simple facet widget which allow adding a widget
 for faceted search or category/taxonomy browsing for all post types and all taxonomies.
 
 
-= TODO =
-* Post counter
+== TODO ==
+* Posts counter
 * Define AND/OR logic
+* Time/Date pickers
+* Number formatter
 
 
-= DEVELOPERS =
+== DEVELOPERS ==
 Plugin also define some filters and actions, currently available are:
 * Alter ordering 'scifi_list_orderby' parameter $orderby
 * Alter class of taxonomy term links 'scifi_facets_formatter_links_classes' parameters $term_classes and optionally $term
