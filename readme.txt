@@ -1,6 +1,6 @@
-=== scifi_facets ===
+=== scifi Facets ===
 Contributors: dimitrov.adrian
-Tags: taxonomy, terms, facet, faceted, search
+Tags: date archive, taxonomy, terms, facet, faceted, search
 Requires at least: 3.7
 Tested up to: 4.0
 Stable tag: 1.0
@@ -10,23 +10,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-scifi_facets is simple facet widget which allow adding a widget
-for faceted search or category/taxonomy browsing for all post types and all taxonomies.
+scifi Facets is simple facet widget which allow adding a widget
+for faceted search or category/taxonomy and date browsing for all post types and all taxonomies.
 
-
-== TODO ==
-* Posts counter
-* Define AND/OR logic
-* Time/Date pickers
-* Number formatter
-
-
-== DEVELOPERS ==
-Plugin also define some filters and actions, currently available are:
-* Alter ordering 'scifi_list_orderby' parameter $orderby
-* Alter class of taxonomy term links 'scifi_facets_formatter_links_classes' parameters $term_classes and optionally $term
-* Alter formatters 'scifi_facets_formatters' parameter available formatters
-* Alter terms before processed 'scifi_facets_prepare_tax_terms' parameter $terms, $instance
+Plugin also provide hooks for developers.
 
 
 == Screenshots ==
@@ -40,10 +27,16 @@ Plugin also define some filters and actions, currently available are:
 1. Visit 'Plugins > Add New'
 2. Search for 'scifi facets'
 3. Activate scifi facets from your Plugins page.
-4. Visit Appearance > Widgets and add '(scifi) Taxonomy facets' to some of your widget area.
+4. Visit Appearance > Widgets and add '(scifi Facets) ... 'widgets to some of your widget area.
 
 
 == Changelog ==
+
+= 0.4 =
+* Added date facet widget
+* Separated ordering part from main taxonomy widget
+* Code improvement
+* Fixed possible PHP warnings
 
 = 0.3 =
 * Added query/permalink configuration
@@ -57,4 +50,3 @@ Plugin also define some filters and actions, currently available are:
 
 = 0.1 =
 * Initial bump
-

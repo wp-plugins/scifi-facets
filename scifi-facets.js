@@ -1,13 +1,30 @@
+/**
+ * @file
+ * scifi Facets default JS file.
+ */
 (function($) {
   $(document).ready(function() {
 
-    // Handle tags actions
-    $('.scifi-facets-terms-tags-inactive').hide();
-    $('.scifi-facets-terms-format-tags .scifi-facets-terms-title')
+  
+  
+    // Handle time links actions.
+    $('.scifi-facets-group-time.scifi-facets-format-links .scifi-facets-group-list:not(.scifi-facets-current-group)').hide();
+    $('.scifi-facets-group-time.scifi-facets-format-links .scifi-facets-group-title')
+      .css('cursor', 'pointer')
       .on('click', function(event) {
         event.preventDefault();
-        var currentInactive = $(this).closest('.scifi-facets-terms-format-tags').find('.scifi-facets-terms-tags-inactive');
-        $('.scifi-facets-terms-tags-inactive:visible').not(currentInactive).slideUp(150);
+        var currentInactive = $(this).next('.scifi-facets-group-list ');
+        $(currentInactive).slideToggle(150);
+      });
+  
+    // Handle taxonomy tags actions.
+    $('.scifi-facets-tags-inactive').hide();
+    $('.scifi-facets-format-tags .scifi-facets-group-title')
+      .css('cursor', 'pointer')
+      .on('click', function(event) {
+        event.preventDefault();
+        var currentInactive = $(this).next('.scifi-facets-group-list').find('.scifi-facets-tags-inactive');
+        $('.scifi-facets-tags-inactive:visible').not(currentInactive).slideUp(150);
         $(currentInactive).slideToggle(150);
       });
 
