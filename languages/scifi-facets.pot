@@ -1,0 +1,221 @@
+# Copyright (C) 2014 scifi Facets
+# This file is distributed under the same license as the scifi Facets package.
+msgid ""
+msgstr ""
+"Project-Id-Version: scifi Facets 0.4\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/scifi-facets\n"
+"POT-Creation-Date: 2014-11-10 20:01:59+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: widget-ordering.php:20
+msgid "Ordering of current view"
+msgstr ""
+
+#: widget-ordering.php:24
+msgid "Title"
+msgstr ""
+
+#: widget-ordering.php:25
+msgid "Date"
+msgstr ""
+
+#: widget-ordering.php:26
+msgid "Last update"
+msgstr ""
+
+#: widget-ordering.php:27
+msgid "Comments"
+msgstr ""
+
+#: widget-ordering.php:30
+msgid "Sort and ordering"
+msgstr ""
+
+#: widget-ordering.php:94 widget.php:229
+msgid "Default"
+msgstr ""
+
+#: widget-ordering.php:106 widget.php:241
+msgid "Asc"
+msgstr ""
+
+#: widget-ordering.php:109 widget.php:244
+msgid "Desc"
+msgstr ""
+
+#: widget-ordering.php:147 widget-taxonomy.php:451 widget-time.php:277
+#: widget.php:282
+msgid "Title:"
+msgstr ""
+
+#: widget-ordering.php:165 widget.php:451
+msgid "Show \"order by\" selector"
+msgstr ""
+
+#: widget-ordering.php:177 widget.php:463
+msgid "Show \"order\" selector"
+msgstr ""
+
+#: widget-ordering.php:183
+msgid "Require params:"
+msgstr ""
+
+#: widget-ordering.php:192
+msgid ""
+"Coma separated list of GET parameters that should be set for showing this "
+"widget."
+msgstr ""
+
+#: widget-taxonomy.php:40 widget-taxonomy.php:103 widget-time.php:59
+#: widget-time.php:98
+msgid "All"
+msgstr ""
+
+#: widget-taxonomy.php:195 widget.php:18 widget.php:21
+msgid "Taxonomy facets"
+msgstr ""
+
+#: widget-taxonomy.php:200 widget-time.php:135
+msgid "Links"
+msgstr ""
+
+#: widget-taxonomy.php:204
+msgid "Tags"
+msgstr ""
+
+#: widget-taxonomy.php:208
+msgid "Drop down"
+msgstr ""
+
+#: widget-taxonomy.php:212
+msgid "Multiple select"
+msgstr ""
+
+#: widget-taxonomy.php:217
+msgid "Taxonomies"
+msgstr ""
+
+#: widget-taxonomy.php:463 widget.php:482
+msgid "Taxonomies:"
+msgstr ""
+
+#: widget-taxonomy.php:480
+msgid "Exclude (%s) terms:"
+msgstr ""
+
+#: widget-taxonomy.php:489 widget.php:512
+msgid "* Exclude terms is list of coma separated slugs or id."
+msgstr ""
+
+#: widget-taxonomy.php:521 widget.php:439
+msgid "Connect with current page request query"
+msgstr ""
+
+#: widget-taxonomy.php:534 widget-time.php:310 widget.php:358
+msgid "Use permalinks if available"
+msgstr ""
+
+#: widget-taxonomy.php:540 widget.php:364
+msgid "URL base when no permalinks available:"
+msgstr ""
+
+#: widget-taxonomy.php:543 widget-time.php:292 widget.php:367
+msgid "Auto"
+msgstr ""
+
+#: widget-taxonomy.php:544 widget.php:368
+msgid "Custom"
+msgstr ""
+
+#: widget-taxonomy.php:547 widget.php:371
+msgid "%s (post type)"
+msgstr ""
+
+#: widget-taxonomy.php:561 widget-time.php:325 widget.php:385
+msgid "Relative path to the site, without trailing slash."
+msgstr ""
+
+#: widget-taxonomy.php:585
+msgid "Show when next presented:"
+msgstr ""
+
+#: widget-taxonomy.php:588 widget.php:472
+msgid "None"
+msgstr ""
+
+#: widget-taxonomy.php:605 widget-time.php:354 widget.php:415
+msgid "Show in archives"
+msgstr ""
+
+#: widget-taxonomy.php:617 widget-time.php:366 widget.php:427
+msgid "Show in single post views"
+msgstr ""
+
+#: widget-taxonomy.php:623 widget-time.php:372 widget.php:294
+msgid "Format:"
+msgstr ""
+
+#: widget-taxonomy.php:662 widget.php:333
+msgid "Show taxonomy names"
+msgstr ""
+
+#: widget-taxonomy.php:674 widget-time.php:411 widget.php:345
+msgid "Show \"show all\" item"
+msgstr ""
+
+#: widget-time.php:131
+msgid "Time facets"
+msgstr ""
+
+#: widget-time.php:139
+msgid "Select"
+msgstr ""
+
+#: widget-time.php:143
+msgid "Time"
+msgstr ""
+
+#: widget-time.php:289
+msgid "Post type:"
+msgstr ""
+
+#: widget-time.php:316
+msgid "Use custom URL base"
+msgstr ""
+
+#: widget.php:225
+msgid "Order"
+msgstr ""
+
+#: widget.php:469
+msgid "Depends of:"
+msgstr ""
+
+#: widget.php:499
+msgid "Exclude terms:"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "scifi Facets"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://wordpress.org/extend/plugins/scifi-facets/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Add widget for faceted search or category/taxonomy browsing"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Adrian Dimitrov <dimitrov.adrian@gmail.com>"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://scifi.bg/opensource/"
+msgstr ""
