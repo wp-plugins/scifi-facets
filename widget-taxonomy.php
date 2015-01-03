@@ -239,6 +239,7 @@ class Widget_Scifi_Facets_Taxonomy extends WP_Widget {
       'dependsof' => '',
       'urlbase' => '',
       'urlbase_custom' => '',
+      'order' => '',
     );
     $settings = array_merge($defaults, $settings);
     if (!is_array($settings['taxonomies'])) {
@@ -404,6 +405,15 @@ class Widget_Scifi_Facets_Taxonomy extends WP_Widget {
                 break;
               }
             }
+          }
+        }
+
+        // Order elements.
+        if ($instance['order']) {
+          $order_cb = create_function('$a,$b', 'return $a->slug < $b->slug ? -1 : 1;');
+          usort($tax_terms[$tax_name], $order_cb);
+          if ($instance['order'] == 'desc') {
+            $tax_terms[$tax_name] = array_reverse($tax_terms[$tax_name], TRUE);
           }
         }
 
@@ -673,6 +683,17 @@ class Widget_Scifi_Facets_Taxonomy extends WP_Widget {
       <label for="<?php echo $this->get_field_id('includeall')?>">
         <?php _e('Show "show all" item', 'scifi-facets')?>
       </label>
+    </p>
+    
+    <p>
+      <label for="<?php echo $this->get_field_id('order')?>">
+        <?php _e('Order:', 'scifi-facets')?>
+      </label>
+      <select class="widefat" id="<?php echo $this->get_field_id('order')?>" name="<?php echo $this->get_field_name('order')?>">
+        <option value="">-<?php _e('none')?>-</option>
+        <option value="asc" <?php selected($instance['order'], 'asc')?> > <?php _e('Asc', 'scifi-facets')?> </option>
+        <option value="desc" <?php selected($instance['order'], 'desc')?> > <?php _e('Desc', 'scifi-facets')?> </option>
+      </select>
     </p>
 
     <p>&nbsp;</p>

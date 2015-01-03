@@ -53,7 +53,7 @@ function _scifi_facets_time_url($year, $month, $widget_instance) {
 function _scifi_facets_time_formatters_links($records, $active_year, $active_month, $widget_instance) {
   global $wp_locale;
 
-  if ($widget_instance['includeall'] == 'includeall'):?>
+  if ($widget_instance['includeall'] == 'includeall' && ($active_year || $active_month)):?>
   <div>
     <a class="scifi-facets-includeall" href="<?php echo _scifi_facets_time_url(NULL, NULL, $widget_instance)?>" rel="nofollow">
       <?php _e('All', 'scifi-facets')?>
@@ -94,7 +94,7 @@ function _scifi_facets_time_formatters_select($records, $active_year, $active_mo
   global $wp_locale;
 
   echo '<select class="scifi-facets-select">';
-  if ($widget_instance['includeall'] == 'includeall') {
+  if ($widget_instance['includeall'] == 'includeall' && ($active_year || $active_month)) {
     printf('<option value="%s">&lt;%s&gt;</option>', _scifi_facets_time_url(NULL, NULL, $widget_instance), __('All', 'scifi-facets'));
   }
 
@@ -206,8 +206,8 @@ class Widget_Scifi_Facets_Time extends WP_Widget {
       echo $before_title . $instance['title'] . $after_title;
     }
 
-    $current_year = get_query_var('year') ? get_query_var('year') : date('Y');
-    $current_month = get_query_var('monthnum') ? get_query_var('monthnum') : date('m');
+    $current_year = get_query_var('year') ? get_query_var('year') : NULL;
+    $current_month = get_query_var('monthnum') ? get_query_var('monthnum') : NULL;
 
     $post_type = empty($instance['posttype']) ? get_query_var('post_type') : $instance['posttype'];
 

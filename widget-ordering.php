@@ -20,7 +20,7 @@ class Widget_Scifi_Facets_Ordering extends WP_Widget {
         'description' => __('Ordering of current view', 'scifi-facets'),
     );
 
-    $this->order_options = apply_filters('scifi_list_orderby', array(
+    $this->order_options = apply_filters('scifi_facets_list_orderby', array(
       'title'         => __('Title', 'scifi-facets'),
       'date'          => __('Date', 'scifi-facets'),
       'modified'      => __('Last update', 'scifi-facets'),
