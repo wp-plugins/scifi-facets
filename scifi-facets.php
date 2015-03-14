@@ -6,7 +6,7 @@
  * Description: Add widget for faceted search or category/taxonomy browsing
  * Author:      Adrian Dimitrov <dimitrov.adrian@gmail.com>
  * Author URI:  http://scifi.bg/opensource/
- * Version:     0.5
+ * Version:     0.6
  * Text Domain: scifi-facets
  * Domain Path: /languages/
  */
