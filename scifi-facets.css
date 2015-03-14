@@ -2,7 +2,6 @@
   overflow: hidden;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-  -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
@@ -18,9 +17,15 @@
 }
 .scifi-facets-format-tags .scifi-facets-group-title:after,
 .scifi-facets-group-time.scifi-facets-format-links .scifi-facets-group-title:after {
-  content: '\25bc';
+  content: '\25b2';
   float: right;
   opacity: .5;
+  -moz-transition: transform 150ms ease;
+  -webkit-transition: transform 150ms ease;
+  transition: transform 150ms ease;
+}
+.scifi-facets-group-time.scifi-facets-format-links .scifi-facets-group-title.scifi-facets-state-open:after {
+  transform: rotate(-180deg);
 }
 
 
@@ -48,6 +53,7 @@
 .scifi-facets-select-multiple,
 .scifi-facets-select {
   box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   width: 96%;
   margin: 2%;

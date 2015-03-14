@@ -2,7 +2,7 @@
 Contributors: dimitrov.adrian
 Tags: date archive, taxonomy, terms, facet, faceted, search
 Requires at least: 3.7
-Tested up to: 4.1
+Tested up to: 4.2
 Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -31,6 +31,10 @@ Plugin also provide hooks for developers.
 
 
 == Changelog ==
+
+= 0.6 =
+* Fixed: bug when themes using widgets before script enqueue hook
+* Tweak: Animating arrow on time archive blocks
 
 = 0.5 =
 * Added order field
