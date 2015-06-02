@@ -6,10 +6,29 @@
  * Description: Add widget for faceted search or category/taxonomy browsing
  * Author:      Adrian Dimitrov <dimitrov.adrian@gmail.com>
  * Author URI:  http://scifi.bg/opensource/
- * Version:     0.6
+ * Version:     0.6.1
  * Text Domain: scifi-facets
  * Domain Path: /languages/
  */
+
+
+/**
+ * Check for PHP version
+ */
+if (version_compare(phpversion(), '5.3.0', '<')) {
+
+  /**
+   * Backend message.
+   */
+  function _scifi_facets_notices_php() {
+    echo '<div class="error"><p>';
+    printf(__('scifi Facets plugin requires PHP >= 5.3.0, but you have PHP %s. In order to get it work you need to upgrade the PHP to 5.3.0, contact your hosting provider for furture information.'), phpversion());
+    echo '</p></div>';
+  }
+  add_action('admin_notices', '_scifi_facets_notices_php');
+
+  return;
+}
 
 
 /**

@@ -13,7 +13,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 scifi Facets is simple facet widget which allow adding a widget
 for faceted search or category/taxonomy and date browsing for all post types and all taxonomies.
 
-Plugin also provide hooks for developers.
+Require PHP 5.3
 
 
 == Screenshots ==
@@ -31,6 +31,9 @@ Plugin also provide hooks for developers.
 
 
 == Changelog ==
+
+= 0.6.1 =
+* Added message for unsupported PHP
 
 = 0.6 =
 * Fixed: bug when themes using widgets before script enqueue hook
