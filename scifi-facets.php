@@ -5,7 +5,7 @@
  * Plugin URI:  http://wordpress.org/extend/plugins/scifi-facets/
  * Description: Add widget for faceted search or category/taxonomy browsing
  * Author:      Adrian Dimitrov <dimitrov.adrian@gmail.com>
- * Author URI:  http://scifi.bg/opensource/
+ * Author URI:  http://e01.scifi.bg/
  * Version:     0.6.1
  * Text Domain: scifi-facets
  * Domain Path: /languages/
