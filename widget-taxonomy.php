@@ -264,7 +264,7 @@ class Widget_Scifi_Facets_Taxonomy extends WP_Widget {
 
     $terms = array();
 
-    if ($settings['connectwithquery'] == 'connectwithquery') {
+    if ($wp_query->request && $settings['connectwithquery'] == 'connectwithquery') {
 
       // Get current query
       $posts_querystr = preg_replace('#\bLIMIT\s*(?:\d+)\s*(?:\,\s*(?:\d+))\b#Ui', '', $wp_query->request);
@@ -477,7 +477,7 @@ class Widget_Scifi_Facets_Taxonomy extends WP_Widget {
             <input type="checkbox"
                    id="<?php echo $this->get_field_id('taxonomies') . '_' . $tax_object->name?>"
                    class="<?php echo $this->get_field_id('taxonomies')?>-cl"
-                   name="<?php echo $this->get_field_name('taxonomies')?>[]"
+                   name="<?php echo $this->get_field_name('taxonomies')?>[<?php echo esc_attr($tax_object->name)?>]"
                    value="<?php echo esc_attr($tax_object->name)?>"
               <?php checked(in_array($tax_object->name, $instance['taxonomies']))?>
               />

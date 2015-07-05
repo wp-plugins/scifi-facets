@@ -32,6 +32,10 @@ Require PHP 5.3
 
 == Changelog ==
 
+= 0.6.2 =
+* Fixed bug with saving taxonomies when SO Panels
+* Minor fixes
+
 = 0.6.1 =
 * Added message for unsupported PHP
 
