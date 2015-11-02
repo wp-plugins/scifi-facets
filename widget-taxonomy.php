@@ -118,7 +118,7 @@ function _scifi_facets_taxonomy_formatters_links($taxonomy_name, $terms, $active
     else {
       $link = add_query_arg($taxonomy_object->query_var, $term->slug, _scifi_facets_taxonomy_url($widget_instance_settings));
     }
-    printf('<li><a class="%s" href="%s" rel="nofollow">%s</a></li>', implode(' ', $term_classes), $link, $term->name);
+    printf('<li><a class="%s" href="%s" rel="nofollow">%s</a></li>', implode(' ', $term_classes), $link, "{$term->name} ({$term->count})");
   }
   echo '</ul>';
 }
@@ -279,9 +279,12 @@ class Widget_Scifi_Facets_Taxonomy extends WP_Widget {
       $where_querystr = call_user_func_array(array($wpdb, 'prepare'), $qparams);
 
       // Main query
-      // @TODO: add counting subquery
       $querystr = "
-        SELECT DISTINCT
+      SELECT
+        *,
+        COUNT(*) as count
+        FROM (
+        SELECT
           wpt.* ,
           wptt.taxonomy
         FROM ({$posts_querystr}) posts
@@ -290,7 +293,9 @@ class Widget_Scifi_Facets_Taxonomy extends WP_Widget {
         INNER JOIN {$wpdb->term_taxonomy} wptt ON wptra.term_taxonomy_id = wptt.term_taxonomy_id
         INNER JOIN {$wpdb->terms} wpt ON wptt.term_id = wpt.term_id
         WHERE {$where_querystr}
-        ORDER BY wptt.taxonomy ASC, wpt.name ASC";
+        GROUP BY posts.id) p
+      GROUP BY term_id
+      ORDER BY taxonomy ASC, name ASC";
 
       foreach ($wpdb->get_results($querystr) as $term) {
         $terms[$term->taxonomy][] = $term;
